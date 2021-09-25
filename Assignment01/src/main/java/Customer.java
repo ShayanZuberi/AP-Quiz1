@@ -27,11 +27,11 @@ public class Customer {
 	}
 	
 	public void openAccount() {
-		Scanner scan = new Scanner(System.in);
+		Scanner scan3 = new Scanner(System.in);
 		System.out.println("Press 1 to open a Savings acoount");
 		System.out.println("Press 2 to open a Checking acoount");
-		int choice = scan.nextInt();
-		if (choice == 1) {
+		int choice3 = Integer.parseInt(scan3.nextLine());
+		if (choice3 == 1) {
 			//open Savings account
 			if (savings == false) {
 				savings = true;
@@ -43,8 +43,9 @@ public class Customer {
 				System.out.println("User already has a savings account");
 			}
 		}
-		else if (choice == 2) {
+		else if (choice3 == 2) {
 			//open Checking account 
+			
 			if (checking == false) {
 				checking = true;
 				checkAcc = new CheckingAccount();
@@ -54,7 +55,7 @@ public class Customer {
 				System.out.println("User already has a checking account");
 			}
 		}
-		scan.close();
+		scan3.close();
 	}
 	
 	public void withdraw() {
@@ -63,7 +64,7 @@ public class Customer {
 			System.out.println("Press 1 to withdraw from Savings Account");
 		if (this.checking == true)
 			System.out.println("Press 2 to withdraw from Checking acoount");
-		int choice = scan.nextInt();
+		int choice = Integer.parseInt(scan.nextLine());
 		if (choice == 1) {
 			//open Savings account
 			if (savings == true) {
@@ -125,6 +126,10 @@ public class Customer {
 	
 	public void setInterest(float rate) {
 		savAcc.setInterestRate(rate);
+	}
+	
+	public void getInterest() {
+		savAcc.getInterestRate();
 	}
 	
 	String getName() {

@@ -33,8 +33,16 @@ public class CheckingAccount extends Account{
 		this.transactionFees = transactionFees;
 	}
 
-	public double calculateTax() {
+	public float calculateTax() {
 		return (this.taxrate * this.balance);
+	}
+	
+	public void setTaxRate(float tax) {
+		this.taxrate = tax;
+	}
+	
+	public float getTaxRate() {
+		return this.taxrate;
 	}
 	
 	public void deductTax() {

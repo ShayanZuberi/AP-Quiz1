@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Bank {
 	private ArrayList<Customer> customers;
 	private int customerCount;
+	private float interest;
 	public Bank() {
 		customers = new ArrayList<Customer>();
 		customerCount = 0;
@@ -20,8 +21,20 @@ public class Bank {
 	    scan2.close();
 	    
 	    
+	    //System.out.println(name + " " + address + " " + phone);
 	    Customer temp = new Customer(name, address, phone);
-	    temp.openAccount();
+	   // temp.openAccount();
+	   // System.out.println("HERE");
+	    customers.add(temp);
+	    customerCount++;
+	}
+	
+	public void addCustomer(String name, String address, String phone) {
+	        
+	    //System.out.println(name + " " + address + " " + phone);
+	    Customer temp = new Customer(name, address, phone);
+	   // temp.openAccount();
+	   // System.out.println("HERE");
 	    customers.add(temp);
 	    customerCount++;
 	}
@@ -69,11 +82,20 @@ public class Bank {
 	}
 	
 	public void setInterestRate(float rate) {	//for all
+		this.interest = rate;
 		for (int i=0; i<customers.size(); i++) {
 			if (customers.get(i).hasSavings() == true) {
 				customers.get(i).setInterest(rate);
 			}
 		}
+	}
+	
+	public float getInterestRate() {
+		return this.interest;
+	}
+	
+	public int CustomerCount() {
+		return this.customerCount;
 	}
 	
 }
